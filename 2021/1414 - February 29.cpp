@@ -1,27 +1,59 @@
-#include<iostream>
-using namespace std;
 
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define fast                          \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);
+long long lcm(int a, int b)
+{
+    return (a / (__gcd(a, b))) * b;
+}
+#define gcd __gcd
+#define yes "YES"
+#define no "NO"
+#define pb push_back
+#define si size()
+#define in " "
+#define mone "-1"
+#define zero "0"
+#define one "1"
+#define PI acos(-1)
+#define endint "\n"
 int main()
 {
-    long int t,y,y1,i,count=0;
+    ll t,tt=1;
     cin>>t;
     while(t--)
     {
-        cin>>y;
-        cin>>y1;
-        for(i=y; i<=y1; i++)
+        ll n,ans=0;
+        string s,s2;
+        ll ta,ye,ye2,ta2;
+        char ch,ch2;
+        cin>>s>>ta>>ch>>ye;
+        cin>>s2>>ta2>>ch2>>ye2;
+        if((ye%4==0&&ye%100!=0)||ye%400==0)
         {
-            if((i%400==0)||(i%4==0&&i%100!=0))
-            {
-                count++;
-                break;
-            }
+            if(s=="January")
+                ans++;
+            else if(s=="February"&&ta<=29)
+                ans++;
         }
-        for(i=i; i<=y1; i+=4)
+        if((ye2%4==0&&ye2%100!=0)||ye2%400==0)
         {
-            if((i%400==0)||(i%4==0&&i%100!=0))
-                count++;
+            if(s2=="January")
+                ans--;
+            else if(s2=="February"&&ta2<29)
+                ans--;
         }
-        cout<<count<<endl;
+        ll k=ye/400;
+        ll ans1=((ye/4)-k)-((ye/100)-k);
+        ans1+=k;
+        k=ye2/400;
+        ll ans2=((ye2/4)-k)-((ye2/100)-k);
+        ans2+=k;
+        ans+=(ans2-ans1);
+        cout<<"Case "<<tt++<<": "<<ans<<endl;
     }
+    return 0;
 }
