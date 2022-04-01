@@ -5,7 +5,7 @@ const ll mxn=3*10e4;
 ll sttime[mxn+3],fintime[mxn+3],vist1[mxn+3],valu[mxn*2+4],a[mxn*2+4];
 vector<ll>g[mxn+4];
 ll tim=0;
-// DFS for generate start time & ending time
+// DFS for generate starting time & ending time
 void dfs_for_timeing(ll u)
 {
     vist1[u]=1;
